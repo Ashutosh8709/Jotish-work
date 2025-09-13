@@ -33,7 +33,6 @@ export default function ChartsPage() {
   const { logout } = useAuth();
 
   useEffect(() => {
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -73,23 +72,20 @@ export default function ChartsPage() {
     }, 1000);
   };
 
-  // Prepare data for charts
-
   const firstTen = employeeData.slice(0, 10).map((emp, index) => ({
-    name: emp[0].split(" ")[0], // First name only for better display
+    name: emp[0].split(" ")[0],
     salary: Number.parseInt(emp[5].replace(/[$,]/g, "")),
     fullName: emp[0],
     position: emp[1],
   }));
 
   const salaryData = employeeData.map((emp, index) => ({
-    name: emp[0].split(" ")[0], // First name only for better display
+    name: emp[0].split(" ")[0],
     salary: Number.parseInt(emp[5].replace(/[$,]/g, "")),
     fullName: emp[0],
     position: emp[1],
   }));
 
-  // Position distribution data
   const positionCounts = employeeData.reduce((acc, emp) => {
     const position = emp[1];
     acc[position] = (acc[position] || 0) + 1;

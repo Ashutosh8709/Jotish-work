@@ -40,7 +40,6 @@ export default function Details() {
   }, []);
 
   useEffect(() => {
-    // Fetch employee data based on ID
     (async () => {
       const res = await axios.post("/api/backend_dev/gettabledata.php", {
         username: "test",
@@ -60,7 +59,6 @@ export default function Details() {
           joinDate: employeeData[4],
           salary: employeeData[5],
 
-          // Additional mock data for details
           email: `${employeeData[0]
             .toLowerCase()
             .replace(" ", ".")}@company.com`,

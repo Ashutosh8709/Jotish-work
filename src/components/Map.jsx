@@ -22,7 +22,6 @@ export default function MapPage() {
   const { logout } = useAuth();
 
   useEffect(() => {
-    // Check for saved theme preference
     const savedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia(
       "(prefers-color-scheme: dark)"
@@ -61,7 +60,6 @@ export default function MapPage() {
     }, 1000);
   };
 
-  // Process location data
   const locationStats = employeeData.reduce((acc, emp) => {
     const location = emp[2];
     const salary = Number.parseInt(emp[5].replace(/[$,]/g, ""));
@@ -91,7 +89,6 @@ export default function MapPage() {
     return acc;
   }, {});
 
-  // City coordinates for visual representation
   const cityCoordinates = {
     Edinburgh: { x: 45, y: 25, country: "Scotland" },
     Tokyo: { x: 85, y: 40, country: "Japan" },

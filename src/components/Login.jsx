@@ -157,7 +157,6 @@ const useLogin = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      //for calling backend api
       await new Promise((resolve) => setTimeout(resolve, 500));
 
       const loginUsername = import.meta.env.VITE_API_USERNAME;

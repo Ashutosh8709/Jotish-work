@@ -37,7 +37,6 @@ function ListView() {
         password: "123456",
       });
 
-      // Transform array data to objects
       const transformedData = res.data.TABLE_DATA.data.map((item, index) => ({
         id: index,
         name: item[0],
@@ -54,7 +53,6 @@ function ListView() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    // const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches
 
     if (savedTheme === "dark") {
       setDarkMode(true);
@@ -81,7 +79,6 @@ function ListView() {
     }, 1000);
   };
 
-  // Filter employees based on search and position filter
   const filteredEmployees = employees.filter((employee) => {
     const matchesSearch = employee.name
       .toLowerCase()
@@ -92,7 +89,6 @@ function ListView() {
     return matchesSearch && matchesPosition;
   });
 
-  // Get unique positions for filter dropdown
   const uniquePositions = [...new Set(employees.map((emp) => emp.position))];
 
   if (loading) {
@@ -517,13 +513,6 @@ function ListView() {
             >
               No employees found
             </h3>
-            <p
-              className={`mt-1 text-sm ${
-                darkMode ? "text-gray-500" : "text-gray-500"
-              }`}
-            >
-              Try adjusting your search or filter criteria.
-            </p>
           </div>
         )}
       </main>
